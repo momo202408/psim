@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://ptz.glitch.me/ -->
+<html lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>P シミュレーション</title>
+
+  <meta name="Description" content="p t">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="script.js" defer=""></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="flex-container">
+  <div id="control-panel">
+    <div class="tab">
+      <button class="tablinks active" onclick="controlChange(event, 0)">試行</button>
+      <button class="tablinks" onclick="controlChange(event, 1)">二項分布</button>
+    </div>
+
+
+    <div id="ctlSimu" class="tabcontent" style="display: block;">
+      <p align="left">
+        1 / <input type="text" id="inputA" name="name" required minlength="4" maxlength="8" size="10" value="99.9">
+      </p>
+      <p>
+        <input type="button" class="button" value="99.9" onclick="setProbabilityValue('99.9')">
+        <input type="button" class="button" value="199.9" onclick="setProbabilityValue('199.9')">
+        <input type="button" class="button" value="319.9" onclick="setProbabilityValue('319.9')">
+      </p>
+      <p align="left">
+        <input class="button" id="runButton" type="button" value="実行">
+        <input class="button" id="runOnesButton" type="button" value="一回">
+      </p>
+      <p align="left">
+        <input class="button" id="clearButton" type="button" value="クリア" onclick="clearLog()">
+      </p>
+    </div>
+    <div id="ctlBinomDist" class="tabcontent" style="display: none;">
+      <!-- <p align="left">
+    成功回数
+    <input type="text" id="inputX" name="name" required  maxlength="8" size="10" value="0">
+  </p> -->
+      <p align="left">
+        試行回数
+        <input type="text" id="inputN" name="name" required maxlength="8" size="10" value="100">
+      </p>
+      <p align="left">
+        １試行の成功確率
+        &nbsp;1 / <input type="text" id="inputP" name="name" required maxlength="8" size="10" value="99.9">
+      </p>
+      <p align="left">
+        <input class="button" id="calcButton" type="button" value="計算">
+        <input class="button" id="clearButton" type="button" value="クリア" onclick="clearLog()">
+      </p>
+    </div>
+  </div>
+
+  <div id="logs"></div>
+</body>
+
+</html>
