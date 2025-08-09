@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 1em;
     background-color: #f0f0f0;
+    touch-action: manipulation; /* ダブルタップによるズームを無効化 */
 }
 
 .flex-container {
