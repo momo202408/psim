@@ -11,6 +11,17 @@ const runC = document.getElementById('runOnesButton');
 const clearB = document.getElementById('clearButton');
 const calcB = document.getElementById('calcButton');
 const logs = document.getElementById('logs');
+const minusButton = document.getElementById('minusButton');
+const plusButton = document.getElementById('plusButton');
+const minus10Button = document.getElementById('minus10Button');
+const plus10Button = document.getElementById('plus10Button');
+
+const updateValue = (amount) => {
+  const currentValue = parseFloat(inputA.value) || 0;
+  const newValue = Math.max(1, currentValue + amount);
+  inputA.value = newValue.toFixed(1);
+  inputP.value = newValue.toFixed(1);
+};
 
 inputA.addEventListener('input', () => { inputP.value = inputA.value; });
 inputP.addEventListener('input', () => { inputA.value = inputP.value; });
@@ -18,6 +29,10 @@ runB.addEventListener('click', runSimi);
 //clearB.addEventListener('click', clearLog);
 calcB.addEventListener('click', calcBinomialDistribution);
 runC.addEventListener('click', runOnesSimi);
+minusButton.addEventListener('click', () => updateValue(-1));
+plusButton.addEventListener('click', () => updateValue(1));
+minus10Button.addEventListener('click', () => updateValue(-10));
+plus10Button.addEventListener('click', () => updateValue(10));
 
 function runSimi(e) {
   var random;
@@ -91,12 +106,6 @@ function controlChange(evt, n) {
 
 function log(text) {
   logs.scrollTop = 0;
-  // if (logs.firstChild && text == logs.firstChild.textContent) {
-  //   logs.firstChild.classList.toggle("again", true);
-  //   logs.firstChild.dataset.times =
-  //     (parseInt(logs.firstChild.dataset.times) || 0) + 1;
-  //   return;
-  // }
   const pre = document.createElement("pre");
   pre.textContent = `${text}`;
   logs.insertBefore(pre, logs.firstChild);
